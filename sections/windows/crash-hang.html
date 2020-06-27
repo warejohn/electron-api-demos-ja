@@ -4,27 +4,30 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-          Handling Window Crashes and Hangs
+          ハングとクラッシュのハンドリング
         </h1>
-        <h3>The <code>BrowserWindow</code> module will emit events when the renderer process crashes or hangs. You can listen for these events and give users the chance to reload, wait or close that window.</h3>
+        <h3>
+            <code>BrowserWindow</code>モジュールは、レンダラープロセスがクラッシュまたはハングしたときにイベントを発行します。<br>
+            これらのイベントリスナーを使うことで、ユーザーに再読み込み、待機、またはウィンドウを閉じる選択肢が与えることができます。
+        </h3>
 
-        <p>Open the <a href="http://electron.atom.io/docs/api/browser-window">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+        <p>ブラウザで<a href="http://electron.atom.io/docs/api/browser-window">APIドキュメント<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます。)</span></a>を開きます。</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="new-window-crashes-demo-toggle" class="js-container-target demo-toggle-button">Relaunch window after the process crashes
+        <button id="new-window-crashes-demo-toggle" class="js-container-target demo-toggle-button">プロセスがクラッシュした後にウィンドウを再起動する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
           <div class="demo-controls">
             <button class="demo-button" id="process-crash">View Demo</button>
           </div>
-          <p>In this demo we create a new window (via the <code>remote</code> module) and provide a link that will force a crash using <code>process.crash()</code>.</p>
-          <p>The window is listening for the crash event and when the event occurs it prompts the user with two options: reload or close.</p>
+          <p>このデモでは、（<code>remote</code>モジュールを介して）新しいウィンドウを作成し、<code>process.crash()</code>を使って強制的にクラッシュさせます。</p>
+          <p>ウィンドウのクラッシュイベントリスナーを使って、イベントが発生した時、リロードまたは閉じるという2つのオプションでプロンプ​​トを表示します。</p>
 
-          <h5>Renderer Process</h5>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/windows/process-crash.js"></code></pre>
         </div>
       </div>
@@ -32,25 +35,31 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="new-window-hangs-demo-toggle" class="js-container-target demo-toggle-button">Relaunch window after the process hangs
+        <button id="new-window-hangs-demo-toggle" class="js-container-target demo-toggle-button">プロセスがハングした後にウィンドウを再起動する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
           <div class="demo-controls">
             <button class="demo-button" id="process-hang">View Demo</button>
           </div>
-          <p>In this demo we create a new window (via the <code>remote</code> module) and provide a link that will force the process to hang using <code>process.hang()</code>.</p>
-          <p>The window is listening for the process to become officially unresponsive (this can take up to 30 seconds). When this event occurs it prompts the user with two options: reload or close.</p>
+          <p>このデモでは、（<code>remote</code>モジュールを介して）新しいウィンドウを作成し、<code>process.hang()</code>を使って強制的にハングさせます。</p>
+          <p>
+            ウィンドウは、プロセスが正式に応答しなくなるまでを待機します。（これには最大30秒かかる場合があります）<br>
+            イベントが発生すると、リロードまたは閉じるという2つのオプションでプロンプ​​トを表示します。
+          </p>
 
-          <h5>Renderer Process</h5>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/windows/process-hang.js"></code></pre>
 
           <div class="demo-protip">
             <h2>ProTip</h2>
-            <strong>Wait for the process to become responsive again.</strong>
-            <p>A third option in the case of a process that is hanging is to wait and see if the problem resolves, allowing the process to become responsive again. To do this, use the <code>BrowserWindow</code> event 'responsive' as shown below.</p>
+            <strong>プロセスが再び応答するまで待つ</strong>
+            <p>
+                プロセスがハングしている場合の第3のオプションは、待機して問題が解決するかどうかを確認し、再度プロセスが応答可能になるようにすることです。<br>
+                オプションを使うためには、以下のように<code>BrowserWindow</code>イベントの'responsive'を使用します。
+            </p>
             <pre><code class="language-js">win.on('responsive', function () {
-  // Do something when the window is responsive again
+  // ウィンドウが再び反応したときの処理
 })</code></pre>
           </div>
         </div>
