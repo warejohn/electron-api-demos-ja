@@ -6,8 +6,8 @@ const processCrashBtn = document.getElementById('process-crash')
 processCrashBtn.addEventListener('click', (event) => {
   const crashWinPath = path.join('file://', __dirname, '../../sections/windows/process-crash.html')
   let win = new BrowserWindow({
-    width: 400,
-    height: 320,
+    width: 550,
+    height: 350,
     webPreferences: {
       nodeIntegration: true
     }
@@ -16,9 +16,9 @@ processCrashBtn.addEventListener('click', (event) => {
   win.webContents.on('crashed', () => {
     const options = {
       type: 'info',
-      title: 'Renderer Process Crashed',
-      message: 'This process has crashed.',
-      buttons: ['Reload', 'Close']
+      title: 'レンダラープロセスがクラッシュしました。',
+      message: 'このプロセスはクラッシュしました。',
+      buttons: ['リロード', '閉じる']
     }
 
     dialog.showMessageBox(options, (index) => {

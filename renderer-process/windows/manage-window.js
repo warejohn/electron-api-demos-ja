@@ -6,7 +6,7 @@ let win
 
 manageWindowBtn.addEventListener('click', (event) => {
   const modalPath = path.join('file://', __dirname, '../../sections/windows/manage-modal.html')
-  win = new BrowserWindow({ width: 400, height: 275 })
+  win = new BrowserWindow({ width: 550, height: 300 })
 
   win.on('resize', updateReply)
   win.on('move', updateReply)
@@ -16,7 +16,7 @@ manageWindowBtn.addEventListener('click', (event) => {
 
   function updateReply () {
     const manageWindowReply = document.getElementById('manage-window-reply')
-    const message = `Size: ${win.getSize()} Position: ${win.getPosition()}`
+    const message = `サイズ: ${win.getSize()} 位置: ${win.getPosition()}`
     manageWindowReply.innerText = message
   }
 })

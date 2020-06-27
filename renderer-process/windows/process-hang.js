@@ -6,8 +6,8 @@ const processHangBtn = document.getElementById('process-hang')
 processHangBtn.addEventListener('click', (event) => {
   const hangWinPath = path.join('file://', __dirname, '../../sections/windows/process-hang.html')
   let win = new BrowserWindow({
-    width: 400,
-    height: 320,
+    width: 550,
+    height: 350,
     webPreferences: {
       nodeIntegration: true
     }
@@ -16,9 +16,9 @@ processHangBtn.addEventListener('click', (event) => {
   win.on('unresponsive', () => {
     const options = {
       type: 'info',
-      title: 'Renderer Process Hanging',
-      message: 'This process is hanging.',
-      buttons: ['Reload', 'Close']
+      title: 'レンダラープロセスがハングしました。',
+      message: 'このプロセスはハングしています。',
+      buttons: ['リロード', '閉じる']
     }
 
     dialog.showMessageBox(options, (index) => {
