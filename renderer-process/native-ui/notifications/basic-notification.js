@@ -1,6 +1,6 @@
 const notification = {
-  title: 'Basic Notification',
-  body: 'Short message part'
+  title: '基本的な通知',
+  body: '簡単なメッセージ'
 }
 
 const notificationButton = document.getElementById('basic-noti')
