@@ -4,18 +4,18 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
-          Tray
+          トレイ
         </h1>
-        <h3>The <code>tray</code> module allows you to create an icon in the operating system's notification area.</h3>
-        <p>This icon can also have a context menu attached.</p>
+        <h3><code>tray</code>モジュールを使って、OSの通知領域にアイコンの作成ができます。</h3>
+        <p>このアイコンには、コンテキストメニューを添付することもできます。</p>
 
-        <p>Open the <a href="http://electron.atom.io/docs/api/tray">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+        <p>詳しくは、<a href="http://electron.atom.io/docs/api/tray">ドキュメント<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます)</span></a>からご覧ください。</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="tray-demo-toggle" class="js-container-target demo-toggle-button">Tray
+        <button id="tray-demo-toggle" class="js-container-target demo-toggle-button">トレイ
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux | Process: Main</div>
         </button>
         <div class="demo-box">
@@ -23,18 +23,24 @@
             <button class="demo-button" id="put-in-tray">View Demo</button>
             <span class="demo-response" id="tray-countdown"></span>
           </div>
-          <p>The demo button sends a message to the main process using the <code>ipc</code> module. In the main process the app is told to place an icon, with a context menu, in the tray.</p>
+            <p>
+                デモボタンは、<code>ipc</code>モジュールを使ってメインプロセスにメッセージを送信します。<br>
+                メインプロセスでは、アプリからコンテキストメニュー付きのアイコンをトレイに配置します。
+            </p>
 
-          <p>In this example the tray icon can be removed by clicking 'Remove' in the context menu or selecting the demo button again.</p>
-          <h5>Main Process</h5>
+          <p>このデモでは、コンテキストメニューの[消す]をクリックするか、デモボタンをもう一度選択することで、トレイアイコンが消せます。</p>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/native-ui/tray/tray.js"></code></pre>
-          <h5>Renderer Process</h5>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/native-ui/tray/tray.js"></code></pre>
 
           <div class="demo-protip">
             <h2>ProTip</h2>
-            <strong>Tray support in Linux.</strong>
-            <p>On Linux distributions that only have app indicator support, users will need to install <code>libappindicator1</code> to make the tray icon work. See the <a href="http://electron.atom.io/docs/api/tray">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> for more details about using Tray on Linux.</p>
+            <strong>Linuxでのトレイのサポート</strong>
+            <p>
+                アプリインジケーターのサポートのみを備えたLinuxディストリビューションでは、<code>libappindicator1</code>をインストールする必要があります。<br>
+                Linuxでのトレイの使用に関する詳細については、<a href="http://electron.atom.io/docs/api/tray">ドキュメント<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます)</span></a>をご覧ください。
+            </p>
           </div>
         </div>
       </div>

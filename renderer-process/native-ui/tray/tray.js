@@ -10,7 +10,7 @@ trayBtn.addEventListener('click', function (event) {
     ipc.send('remove-tray')
   } else {
     trayOn = true
-    const message = 'Click demo again to remove.'
+    const message = 'もう一度デモボタンをクリックすると、消えます。'
     document.getElementById('tray-countdown').innerHTML = message
     ipc.send('put-in-tray')
   }
