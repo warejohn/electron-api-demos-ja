@@ -4,25 +4,22 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-          Keyboard Shortcuts
+          キーボードショートカット
         </h1>
 
-        <h3>The <code>globalShortcut</code> and <code>Menu</code> modules can be used to define keyboard shortcuts.</h3>
+        <h3><code>globalShortcut</code>および<code>Menu</code>モジュールを使って、キーボードショートカットを定義できます。</h3>
 
         <p>
-          In Electron, keyboard shortcuts are called accelerators.
-          They can be assigned to actions in your application's Menu,
-          or they can be assigned globally so they'll be triggered even when
-          your app doesn't have keyboard focus.
+            Electronでは、キーボードショートカットはacceleratorsと呼ばれます。
+            アプリケーションのメニューやグローバルにアクションに割り当てることができるので、アプリにキーボードフォーカスがない場合でもトリガーされます。
         </p>
 
         <p>
-          Open the full documentation for the
-          <a class="u-exlink" href="http://electron.atom.io/docs/api/menu">Menu</a>,
-          <a class="u-exlink" href="http://electron.atom.io/docs/api/accelerator">Accelerator</a>,
-          and
-          <a class="u-exlink" href="http://electron.atom.io/docs/api/global-shortcut">globalShortcut</a>
-          APIs in your browser.
+            APIに関して、詳しくは
+            <a class="u-exlink" href="http://electron.atom.io/docs/api/menu">Menu</a>、
+            <a class="u-exlink" href="http://electron.atom.io/docs/api/accelerator">Accelerator</a>、
+            <a class="u-exlink" href="http://electron.atom.io/docs/api/global-shortcut">globalShortcut</a>
+            からご覧ください。
         </p>
 
       </div>
@@ -30,31 +27,28 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="shortcuts-demo-toggle" class="js-container-target demo-toggle-button">Register a global keyboard shortcut
+        <button id="shortcuts-demo-toggle" class="js-container-target demo-toggle-button">グローバルキーボードショートカットを登録する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
           <p>
-            To try this demo, press <kbd class="normalize-to-platform">CommandOrControl+Alt+K</kbd> on your keyboard.
+            このデモを試すには、キーボードの<kbd class="normalize-to-platform">CommandOrControl+Alt+K</kbd>を押してください。
           </p>
 
           <p>
-            Global shortcuts are detected even when the app doesn't have
-            keyboard focus, and they must be registered after the app's
-            `ready` event is emitted.
+            グローバルショートカットは、アプリにキーボードフォーカスがない場合でも検出されます。<br>
+            そして、アプリの<code>ready</code>イベントが発生した後に登録する必要があります。
           </p>
 
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/menus/shortcuts.js"></code></pre>
 
           <div class="demo-protip">
             <h2>ProTip</h2>
-            <strong>Avoid overriding system-wide keyboard shortcuts.</strong>
+            <strong>システム全体のキーボードショートカットを上書きしない</strong>
             <p>
-              When registering global shortcuts, it's important to be aware of
-              existing defaults in the target operating system, so as not to
-              override any existing behaviors. For an overview of each
-              operating system's keyboard shortcuts, view these documents:
+                グローバルショートカットを登録するときは、既存の動作を上書きしないように、OSの既存のデフォルトショートカットに注意することが重要です。<br>
+                各OSのキーボードショートカットの概要については、次のドキュメントを参照してください。
             </p>
 
             <ul>
