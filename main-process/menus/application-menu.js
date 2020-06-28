@@ -1,38 +1,38 @@
 const {BrowserWindow, Menu, app, shell, dialog} = require('electron')
 
 let template = [{
-  label: 'Edit',
+  label: '編集',
   submenu: [{
-    label: 'Undo',
+    label: '元に戻す',
     accelerator: 'CmdOrCtrl+Z',
     role: 'undo'
   }, {
-    label: 'Redo',
+    label: 'やり直し',
     accelerator: 'Shift+CmdOrCtrl+Z',
     role: 'redo'
   }, {
     type: 'separator'
   }, {
-    label: 'Cut',
+    label: 'カット',
     accelerator: 'CmdOrCtrl+X',
     role: 'cut'
   }, {
-    label: 'Copy',
+    label: 'コピー',
     accelerator: 'CmdOrCtrl+C',
     role: 'copy'
   }, {
-    label: 'Paste',
+    label: 'ペースト',
     accelerator: 'CmdOrCtrl+V',
     role: 'paste'
   }, {
-    label: 'Select All',
+    label: 'すべてを選択',
     accelerator: 'CmdOrCtrl+A',
     role: 'selectall'
   }]
 }, {
-  label: 'View',
+  label: '表示',
   submenu: [{
-    label: 'Reload',
+    label: 'リロード',
     accelerator: 'CmdOrCtrl+R',
     click: (item, focusedWindow) => {
       if (focusedWindow) {
@@ -47,7 +47,7 @@ let template = [{
       }
     }
   }, {
-    label: 'Toggle Full Screen',
+    label: '全体画面切り替え',
     accelerator: (() => {
       if (process.platform === 'darwin') {
         return 'Ctrl+Command+F'
@@ -61,7 +61,7 @@ let template = [{
       }
     }
   }, {
-    label: 'Toggle Developer Tools',
+    label: 'Developer Tools 切り替え',
     accelerator: (() => {
       if (process.platform === 'darwin') {
         return 'Alt+Command+I'
@@ -77,34 +77,34 @@ let template = [{
   }, {
     type: 'separator'
   }, {
-    label: 'App Menu Demo',
+    label: 'アプリメニューのデモ',
     click: function (item, focusedWindow) {
       if (focusedWindow) {
         const options = {
           type: 'info',
-          title: 'Application Menu Demo',
-          buttons: ['Ok'],
-          message: 'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.'
+          title: 'アプリメニューのデモ',
+          buttons: ['確認'],
+          message: 'このデモはメニューセクション用で、アプリケーションメニューでクリック可能なメニュー項目を作成する方法について紹介しています。'
         }
         dialog.showMessageBox(focusedWindow, options, function () {})
       }
     }
   }]
 }, {
-  label: 'Window',
+  label: 'ウィンドウ',
   role: 'window',
   submenu: [{
-    label: 'Minimize',
+    label: '最小化',
     accelerator: 'CmdOrCtrl+M',
     role: 'minimize'
   }, {
-    label: 'Close',
+    label: '閉じる',
     accelerator: 'CmdOrCtrl+W',
     role: 'close'
   }, {
     type: 'separator'
   }, {
-    label: 'Reopen Window',
+    label: 'ウィンドウを再度開く',
     accelerator: 'CmdOrCtrl+Shift+T',
     enabled: false,
     key: 'reopenMenuItem',
@@ -113,10 +113,10 @@ let template = [{
     }
   }]
 }, {
-  label: 'Help',
+  label: 'ヘルプ',
   role: 'help',
   submenu: [{
-    label: 'Learn More',
+    label: 'さらに詳しく',
     click: () => {
       shell.openExternal('http://electron.atom.io')
     }
@@ -176,31 +176,31 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: name,
     submenu: [{
-      label: `About ${name}`,
+      label: `${name}について`,
       role: 'about'
     }, {
       type: 'separator'
     }, {
-      label: 'Services',
+      label: 'サービス',
       role: 'services',
       submenu: []
     }, {
       type: 'separator'
     }, {
-      label: `Hide ${name}`,
+      label: `${name}を隠す`,
       accelerator: 'Command+H',
       role: 'hide'
     }, {
-      label: 'Hide Others',
+      label: '他を隠す',
       accelerator: 'Command+Alt+H',
       role: 'hideothers'
     }, {
-      label: 'Show All',
+      label: 'すべてを表示',
       role: 'unhide'
     }, {
       type: 'separator'
     }, {
-      label: 'Quit',
+      label: '閉じる',
       accelerator: 'Command+Q',
       click: () => {
         app.quit()
@@ -212,7 +212,7 @@ if (process.platform === 'darwin') {
   template[3].submenu.push({
     type: 'separator'
   }, {
-    label: 'Bring All to Front',
+    label: 'すべての画面を前面に',
     role: 'front'
   })
 

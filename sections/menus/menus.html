@@ -4,37 +4,47 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-          Customize Menus
+          メニューのカスタマイズ
         </h1>
-        <h3>The <code>Menu</code> and <code>MenuItem</code> modules can be used to create custom native menus.</h3>
 
-        <p>There are two kinds of menus: the application (top) menu and context (right-click) menu.</p>
+        <h3><code>Menu</code>および<code>MenuItem</code>モジュールを使って、カスタムネイティブメニューの作成ができます。</h3>
 
-        <p>Open the <a href="http://electron.atom.io/docs/api/menu">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+        <p>メニューには、アプリケーション（トップ）メニューとコンテキスト（右クリック）メニューの2種類があります。</p>
+
+        <p>詳しくは、<a href="http://electron.atom.io/docs/api/menu">ドキュメント<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます。)</span></a>からご覧ください。</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="application-menu-demo-toggle" class="js-container-target demo-toggle-button">Create an application menu
+        <button id="application-menu-demo-toggle" class="js-container-target demo-toggle-button">アプリケーションメニューを作成する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
-          <p>The <code>Menu</code> and <code>MenuItem</code> modules allow you to customize your application menu. If you don't set any menu, Electron will generate a minimal menu for your app by default.</p>
-
-          <p>This app uses the code below to set the application menu. If you click the 'View' option in the application menu and then the 'App Menu Demo', you'll see an information box displayed.</p>
-          <h5>Main Process</h5>
+        <p>
+            <code>Menu</code>および<code>MenuItem</code>モジュールを使うと、アプリケーションメニューのカスタマイズができます。<br>
+            メニューに何も設定しない場合、Electronはデフォルトで最小限のメニューを生成します。
+        </p>
+        <p>
+            このアプリは、以下のコードを使用してアプリケーションメニューを設定しています。<br>
+            アプリケーションメニューの [表示] オプションをクリックしてから [アプリメニューのデモ] をクリックすると、メッセージボックスが表示されます。
+        </p>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/menus/application-menu.js"></code></pre>
 
           <div class="demo-protip">
             <h2>ProTip</h2>
-            <strong>Know operating system menu differences.</strong>
-            <p>When designing an app for multiple operating systems it's important to be mindful of the ways application menu conventions differ on each operating system.</p>
-            <p>For instance, on Windows, accelerators are set with an <code>&</code>. Naming conventions also vary, like between "Settings" or "Preferences". Below are resources for learning operating system specific standards.</p>
+            <strong>OSメニューの違いを理解する</strong>
+            <p>複数のOS用のアプリを設計するときは、各OSでのアプリケーションメニューのコンベンションの違いに注意することが重要です。</p>
+            <p>
+                たとえば、Windowsでは、acceleratorsは<code>＆</code>で設定されます。<br>
+                「設定」や「設定」など、命名規則も異なります。<br>
+                以下は、OS固有の標準実装を学習するためのリンクです。
+            </p>
             <ul>
-              <li><a href="https://developer.apple.com/macos/human-interface-guidelines/menus/menu-anatomy/">macOS<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
-              <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb226797(v=vs.85).aspx">Windows<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
-              <li><a href="https://developer.gnome.org/hig/stable/menu-bars.html.en">Linux<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
+              <li><a href="https://developer.apple.com/macos/human-interface-guidelines/menus/menu-anatomy/">macOS<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます。)</span></a></li>
+              <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb226797(v=vs.85).aspx">Windows<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます。)</span></a></li>
+              <li><a href="https://developer.gnome.org/hig/stable/menu-bars.html.en">Linux<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます。)</span></a></li>
             </ul>
           </div>
         </div>
@@ -43,20 +53,23 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="context-menu-demo-toggle" class="js-container-target demo-toggle-button">Create a context menu
+        <button id="context-menu-demo-toggle" class="js-container-target demo-toggle-button">コンテキストメニューを作成する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
           <div class="demo-controls">
             <button class="demo-button" id="context-menu">View Demo</button>
           </div>
-          <p>A context, or right-click, menu can be created with the <code>Menu</code> and <code>MenuItem</code> modules as well. You can right-click anywhere in this app or click the demo button to see an example context menu.</p>
+            <p>
+                コンテキスト（右クリック）メニューは、<code>Menu</code>および<code>MenuItem</code>モジュールでも作成できます。<br>
+                このアプリの任意の場所を右クリックするか、デモボタンをクリックして、コンテキストメニューの例を表示できます。
+            </p>
 
-          <p>In this demo we use the <code>ipcRenderer</code> module to show the context menu when explicitly calling it from the renderer process.</p>
-          <p>See the full <a href="http://electron.atom.io/docs/api/web-contents/#event-context-menu">context-menu event documentation</a> for all the available properties.</p>
-          <h5>Main Process</h5>
+          <p>このデモでは、レンダラープロセスから<code>ipcRenderer</code>モジュールを使ってコンテキストメニューを表示します。</p>
+          <p>詳しくは、<a href="http://electron.atom.io/docs/api/web-contents/#event-context-menu">コンテキストメニューイベントドキュメント</a>利用可能なプロパティが確認できます。</p>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/menus/context-menu.js"></code></pre>
-          <h5>Renderer Process</h5>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/menus/context-menu.js"></code></pre>
         </div>
       </div>
