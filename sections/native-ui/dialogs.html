@@ -4,19 +4,23 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
-          Use system dialogs
+          システムダイアログ
         </h1>
-        <h3>The <code>dialog</code> module in Electron allows you to use native system dialogs for opening files or directories, saving a file or displaying informational messages.</h3>
 
-        <p>This is a main process module because this process is more efficient with native utilities and it allows the call to happen without interrupting the visible elements in your page's renderer process.</p>
+        <h3>Electronの<code>dialog</code>モジュールを使って、ネイティブシステムダイアログからファイルやディレクトリを開いたり、ファイルを保存したり、メッセージを表示したりすることができます。</h3>
 
-        <p>Open the <a href="http://electron.atom.io/docs/api/dialog/">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+        <p>
+            これはメインプロセスモジュールです。<br>
+            このプロセスはネイティブユーティリティを使用することでより効率的に、レンダラープロセスの可視要素を中断することなく呼び出しができます。
+        </p>
+
+        <p>詳しくは、<a href="http://electron.atom.io/docs/api/dialog/">ドキュメント<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます)</span></a>からご覧ください</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button">Open a File or Directory
+        <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button">ファイルまたはディレクトリーを開く
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
@@ -24,16 +28,23 @@
             <button class="demo-button" id="select-directory">View Demo</button>
             <span class="demo-response" id="selected-file"></span>
           </div>
-          <p>In this demo, the <code>ipc</code> module is used to send a message from the renderer process instructing the main process to launch the open file (or directory) dialog. If a file is selected, the main process can send that information back to the renderer process.</p>
-          <h5>Renderer Process</h5>
+            <p>
+                このデモでは、<code>ipc</code>モジュールを使って、メインプロセスにファイル（またはディレクトリ）のダイアログを開くように指示するメッセージをレンダラープロセスから送信します。<br>
+                ファイルを選択すると、メインプロセスはその情報をレンダラープロセスに送り返します。
+            </p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/native-ui/dialogs/open-file.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/native-ui/dialogs/open-file.js"></code></pre>
 
           <div class="demo-protip">
             <h2>ProTip</h2>
-            <strong>The sheet-style dialog on macOS.</strong>
-            <p>On macOS you can choose between a "sheet" dialog or a default dialog. The sheet version descends from the top of the window. To use sheet version, pass the <code>window</code> as the first argument in the dialog method.</p>
+            <strong>macOSのシートスタイルダイアログ</strong>
+            <p>
+                macOSでは、「シート」ダイアログまたはデフォルトのダイアログが選択できます。<br>
+                シートはウィンドウの上から降りてきます。<br>
+                シートを使用するには、ダイアログメソッドの最初の引数として<code>window</code>を渡します。
+            </p>
             <pre><code class="language-js">const ipc = require('electron').ipcMain
 const dialog = require('electron').dialog
 const BrowserWindow = require('electron').BrowserWindow
@@ -50,19 +61,22 @@ ipc.on('open-file-dialog-sheet', function (event) {
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="error-dialog-demo-toggle" class="js-container-target demo-toggle-button">Error Dialog
+        <button id="error-dialog-demo-toggle" class="js-container-target demo-toggle-button">エラーダイアログ
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
           <div class="demo-controls">
             <button id="error-dialog" class="demo-button">View Demo</button>
           </div>
-          <p>In this demo, the <code>ipc</code> module is used to send a message from the renderer process instructing the main process to launch the error dialog.</p>
+            <p>
+                このデモでは、<code>ipc</code>モジュールを使って、メインプロセスにエラーダイアログを起動するように指示するメッセージをレンダラープロセスから送信します。
+            </p>
 
-          <p>You can use an error dialog before the app's <code>ready</code> event, which is useful for showing errors upon startup.</p>
-          <h5>Renderer Process</h5>
+
+            <p>アプリの<code>ready</code>イベントの前にエラーダイアログを使うことができて、起動時にエラーを表示する時に役立ちます。</p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/native-ui/dialogs/error.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/native-ui/dialogs/error.js"></code></pre>
         </div>
       </div>
@@ -70,7 +84,7 @@ ipc.on('open-file-dialog-sheet', function (event) {
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="information-dialog-demo-toggle" class="js-container-target demo-toggle-button">Information Dialog
+        <button id="information-dialog-demo-toggle" class="js-container-target demo-toggle-button">メッセージダイアログ
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
@@ -78,14 +92,17 @@ ipc.on('open-file-dialog-sheet', function (event) {
             <button class="demo-button" id="information-dialog">View Demo</button>
             <span class="demo-response" id="info-selection"></span>
           </div>
-          <p>In this demo, the <code>ipc</code> module is used to send a message from the renderer process instructing the main process to launch the information dialog. Options may be provided for responses which can then be relayed back to the renderer process.</p>
+            <p>
+                このデモでは、<code>ipc</code>モジュールを使って、メインプロセスにメッセージダイアログを起動するように指示するメッセージをレンダラープロセスから送信します。<br>
+                レンダラープロセスに返すことができるレスポンスのオプションが使えます。
+            </p>
 
-          <p>Note: The <code>title</code> property is not displayed in macOS.</p>
+          <p>Note: <code>title</code>プロパティはmacOSに表示されません。</p>
 
-          <p>An information dialog can contain an icon, your choice of buttons, title and message.</p>
-          <h5>Renderer Process</h5>
+          <p>メッセージダイアログには、アイコン、ボタンの選択、タイトル、メッセージを載せることができます。</p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/native-ui/dialogs/information.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/native-ui/dialogs/information.js"></code></pre>
         </div>
       </div>
@@ -93,7 +110,7 @@ ipc.on('open-file-dialog-sheet', function (event) {
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="save-dialog-demo-toggle" class="js-container-target demo-toggle-button">Save Dialog
+        <button id="save-dialog-demo-toggle" class="js-container-target demo-toggle-button">保存ダイアログ
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
         </button>
         <div class="demo-box">
@@ -101,10 +118,13 @@ ipc.on('open-file-dialog-sheet', function (event) {
             <button class="demo-button" id="save-dialog">View Demo</button>
             <span class="demo-response" id="file-saved"></span>
           </div>
-          <p>In this demo, the <code>ipc</code> module is used to send a message from the renderer process instructing the main process to launch the save dialog. It returns the path selected by the user which can be relayed back to the renderer process.</p>
-          <h5>Renderer Process</h5>
+            <p>
+                このデモでは、<code>ipc</code>モジュールを使って、レンダラープロセスからメインプロセスに保存ダイアログを起動するように指示するメッセージを送信します。<br>
+                ユーザーが選択したパスを、レンダラープロセスに返すことができます。
+            </p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/native-ui/dialogs/save.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/native-ui/dialogs/save.js"></code></pre>
         </div>
       </div>

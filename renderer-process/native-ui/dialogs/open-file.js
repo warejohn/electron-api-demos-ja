@@ -7,5 +7,5 @@ selectDirBtn.addEventListener('click', (event) => {
 })
 
 ipcRenderer.on('selected-directory', (event, path) => {
-  document.getElementById('selected-file').innerHTML = `You selected: ${path}`
+  document.getElementById('selected-file').innerHTML = `選択したファイル: ${path}`
 })

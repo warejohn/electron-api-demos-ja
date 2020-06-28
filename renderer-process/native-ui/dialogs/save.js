@@ -7,6 +7,6 @@ saveBtn.addEventListener('click', (event) => {
 })
 
 ipcRenderer.on('saved-file', (event, path) => {
-  if (!path) path = 'No path'
-  document.getElementById('file-saved').innerHTML = `Path selected: ${path}`
+  if (!path) path = 'パスなし'
+  document.getElementById('file-saved').innerHTML = `選択したパス: ${path}`
 })
