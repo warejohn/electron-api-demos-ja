@@ -4,18 +4,18 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
-          Communication between processes
+          2つのプロセス間で通信する
         </h1>
-        <h3>The <code>ipc</code> (inter-process communication) module allows you to send and receive synchronous and asynchronous messages between the main and renderer processes.</h3>
+        <h3><code>ipc</code>（プロセス間通信）モジュールを使って、メインプロセスとレンダラープロセスの間で同期/非同期の通信ができます。</h3>
 
-        <p>There is a version of this module available for both processes: <code>ipcMain</code> and <code>ipcRenderer</code>.</p>
-        <p>Open the full API documentation for the <a href="http://electron.atom.io/docs/api/ipc-main">main process<span class="u-visible-to-screen-reader">(opens in new window)</span></a> and the <a href="http://electron.atom.io/docs/api/ipc-renderer/">renderer process<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+        <p>このモジュールは、<code>ipcMain</code>と<code>ipcRenderer</code>の両方のプロセスで使えます。</p>
+        <p>詳しくは、<a href="http://electron.atom.io/docs/api/ipc-main">メインプロセス<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます)</span></a>と<a href="http://electron.atom.io/docs/api/ipc-renderer/">レンダラープロセス<span class="u-visible-to-screen-reader">(新しいウィンドウが開きます)</span></a>からご覧ください。</p>
       </div>
     </header>
 
-    <div class="demo">
+    <div classレンダラープロセス">
       <div class="demo-wrapper">
-        <button id="async-msg-demo-toggle" class="js-container-target demo-toggle-button">Asynchronous messages
+        <button id="async-msg-demo-toggle" class="js-container-target demo-toggle-button">非同期通信
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Both</div>
         </button>
         <div class="demo-box">
@@ -23,12 +23,14 @@
             <button class="demo-button" id="async-msg">Ping</button>
             <span class="demo-response" id="async-reply"></span>
           </div>
-          <p>Using <code>ipc</code> to send messages between processes asynchronously is the preferred method since it will return when finished without blocking other operations in the same process.</p>
-
-          <p>This example sends a "ping" from this process (renderer) to the main process. The main process then replies with "pong".</p>
-          <h5>Renderer Process</h5>
+            <p><code>ipc</code>を使ってプロセス間で非同期に通信することは、同じプロセス内の他の操作をブロックせずに終了した時に戻るため、推奨される方法です。</p>
+            <p>
+                このデモでは、レンダラープロセスからメインプロセスに「ping」を送信します。<br>
+                その後、メインプロセスは「pong」を返します。
+            </p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/communication/async-msg.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/communication/async-msg.js"></code></pre>
         </div>
       </div>
@@ -36,7 +38,7 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="sync-msg-demo-toggle" class="js-container-target demo-toggle-button">Synchronous messages
+        <button id="sync-msg-demo-toggle" class="js-container-target demo-toggle-button">同期通信
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Both</div>
         </button>
         <div class="demo-box">
@@ -44,11 +46,17 @@
             <button class="demo-button" id="sync-msg">Ping</button>
             <span class="demo-response" id="sync-reply"></span>
           </div>
-          <p>You can use the <code>ipc</code> module to send synchronous messages between processes as well, but note that the synchronous nature of this method means that it <b>will block</b> other operations while completing its task.</p>
-          <p>This example sends a synchronous message, "ping", from this process (renderer) to the main process. The main process then replies with "pong".</p>
-          <h5>Renderer Process</h5>
+            <p>
+                <code>ipc</code>モジュールを使用して、プロセス間で同期メッセージを送信することもできます。<br>
+                ただし、このメソッドの同期的な性質は、タスクの完了中に他の操作を<>ブロック</ b>することを意味します。
+            </p>
+            <p>
+                このデモでは、レンダラープロセスからメインプロセスに「ping」を同期的に送信します。<br>
+                その後、メインプロセスは「pong」を返します。
+            </p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/communication/sync-msg.js"></code></pre>
-          <h5>Main Process</h5>
+          <h5>メインプロセス</h5>
           <pre><code data-path="main-process/communication/sync-msg.js"></code></pre>
         </div>
       </div>
@@ -56,7 +64,7 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="invis-msg-demo-toggle" class="js-container-target demo-toggle-button">Communicate with an invisible window
+        <button id="invis-msg-demo-toggle" class="js-container-target demo-toggle-button">非表示のウィンドウと通信する
           <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Both</div>
         </button>
         <div class="demo-box">
@@ -64,12 +72,18 @@
             <button class="demo-button" id="invis-msg">Compute Factorial</button>
             <span class="demo-response" id="invis-reply"></span>
           </div>
-          <p>It is common practice to create a new invisible browser window (renderer process) in order to run tasks without impacting performance in the main app's window.</p>
-          <p>In this example we use the <code>remote</code> module to create a new invisible browser window from this renderer process. When the new page is loaded we send a message with <code>ipc</code> that the new window is listening for.</p>
-          <p>The new window then computes the factorial and sends the result to be received by this, the original, window and added to the page above.</p>
-          <h5>Renderer Process</h5>
+          <p>アプリのメインウィンドウのパフォーマンスに影響を与えずにタスクを実行するには、新しい非表示のウィンドウ（レンダラープロセス）を生成するのが一般的です。</p>
+            <p>
+                この例では、<code>remote</code>モジュールを使って、レンダラープロセスから新しい非表示のウィンドウを生成します。<br>
+                新しいページが読み込まれると、<code>ipc</code>で送信したメッセージをイベントでリッスンします。
+            </p>
+            <p>
+                次に、新しいウィンドウが階乗(factorial)を計算し、結果を送信します。<br>
+                元のウィンドウで結果が受信され、ページに追加されます。
+            </p>
+          <h5>レンダラープロセス</h5>
           <pre><code data-path="renderer-process/communication/invisible-msg.js"></code></pre>
-          <h5>Invisible Window Page HTML</h5>
+          <h5>非表示ウィンドウのHTML</h5>
           <pre><code data-path="sections/communication/invisible.html"></code></pre>
         </div>
       </div>

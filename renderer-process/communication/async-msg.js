@@ -7,6 +7,6 @@ asyncMsgBtn.addEventListener('click', () => {
 })
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  const message = `Asynchronous message reply: ${arg}`
+  const message = `返す非同期メッセージ: ${arg}`
   document.getElementById('async-reply').innerHTML = message
 })

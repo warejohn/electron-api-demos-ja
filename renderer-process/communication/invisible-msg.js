@@ -25,6 +25,6 @@ invisMsgBtn.addEventListener('click', (clickEvent) => {
 })
 
 ipcRenderer.on('factorial-computed', (event, input, output) => {
-  const message = `The factorial of ${input} is ${output}`
+  const message = `${input}の階乗は${output}`
   invisReply.textContent = message
 })
