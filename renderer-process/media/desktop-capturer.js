@@ -8,7 +8,7 @@ const screenshot = document.getElementById('screen-shot')
 const screenshotMsg = document.getElementById('screenshot-path')
 
 screenshot.addEventListener('click', (event) => {
-  screenshotMsg.textContent = 'Gathering screens...'
+  screenshotMsg.textContent = '画面を収集中...'
   const thumbSize = determineScreenShotSize()
   let options = { types: ['screen'], thumbnailSize: thumbSize }
 
@@ -23,7 +23,7 @@ screenshot.addEventListener('click', (event) => {
           if (error) return console.log(error)
           shell.openExternal(`file://${screenshotPath}`)
 
-          const message = `Saved screenshot to: ${screenshotPath}`
+          const message = `スクリーンショットの保存先: ${screenshotPath}`
           screenshotMsg.textContent = message
         })
       }
