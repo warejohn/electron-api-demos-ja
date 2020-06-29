@@ -1,30 +1,33 @@
-# <img src="https://cloud.githubusercontent.com/assets/378023/15172388/b2b81950-1790-11e6-9a7c-ccc39912bb3a.png" width="60px" align="center" alt="Electron API Demos icon"> Electron API Demos
+# <img src="https://cloud.githubusercontent.com/assets/378023/15172388/b2b81950-1790-11e6-9a7c-ccc39912bb3a.png" width="60px" align="center" alt="Electron API Demos icon"> Electron API デモ(日本語版)
 
 [![Build Status](https://travis-ci.org/electron/electron-api-demos.svg?branch=master)](https://travis-ci.org/electron/electron-api-demos)
 [![JavaScript Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com)
 
-This is a desktop app that interactively and with sample code demonstrates core features of the [Electron](http://electronjs.org) API. It's built with Electron, too, of course. This app works on Windows, macOS and Linux operating systems.
+これはサンプルコードを使ってインタラクティブに[Electron](http://electronjs.org) APIのコア機能が試せるデスクトップアプリです。<br>
+無論、Electronで構築されています。<br>
+このアプリは、Windows、macOS、Linuxで動作します。
 
-Use this app to see what you can do with Electron and use the source code to learn how to create a basic Electron app.
+このアプリを使って、Electronで何ができるかを確認し、ソースコードから基本的なElectronアプリの作り方について学びます。
 
 ![Electron API Demos Screenshots](https://cloud.githubusercontent.com/assets/378023/15016148/ae06cc80-124a-11e6-80dd-076d83e492f6.png)
 
 ---
 
-This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
-By participating, you are expected to uphold this code. Please report unacceptable
-behavior to [coc@electronjs.org](mailto:coc@electronjs.org).
+このプロジェクトは、Contributor Covenantの[行動規範](CODE_OF_CONDUCT.md)に準拠しています。<br>
+参加することで、このコードに従うこととみなします。<br>
+受け入れられないことがあった場合、[coc@electronjs.org](mailto:coc@electronjs.org)まで報告してください。
 
-Follow [@ElectronJS](https://twitter.com/electronjs) on Twitter for important
-announcements. Visit the [electron website](http://electronjs.org).
 
-## Using
+重要な情報については、Twitterで[@ElectronJS](https://twitter.com/electronjs)をフォローしてください。<br>
+[electron website](http://electronjs.org)にアクセスしてみる。
 
-You can [download the latest release](https://github.com/electron/electron-api-demos/releases) for your operating system or build it yourself (see below).
+## 使い方
 
-## Building
+使っているOSの[最新リリース](https://github.com/electron/electron-api-demos/releases)をダウンロードするか、自分でビルドできます。（以下を参照）
 
-You'll need [Node.js](https://nodejs.org) installed on your computer in order to build this app.
+## ビルド
+
+このアプリをビルドするには、PCに[Node.js](https://nodejs.org)をインストールする必要があります。
 
 ```bash
 $ git clone https://github.com/electron/electron-api-demos
@@ -33,21 +36,18 @@ $ npm install
 $ npm start
 ```
 
-If you don't wish to clone, you can [download the source code](https://github.com/electron/electron-api-demos/archive/master.zip).
+クローンしたくない場合は、[ソースコード](https://github.com/electron/electron-api-demos/archive/master.zip)をダウンロードしてください。
 
-For easier developing you can launch the app in fullscreen with DevTools open:
+簡単に開発をするため、DevToolsを開いた状態でアプリを全画面に起動できます。
 
 ```bash
 $ npm run dev
 ```
 
-## Extending
+## 拡張
 
- [Read the docs](docs.md) to learn more about how this app is built or how to [add a new demo](docs.md#add-a-section-or-demo).
+このアプリの構築方法や[新しいデモを追加する](docs.md#add-a-section-or-demo)方法について詳しくは、[ドキュメント](docs.md)をご覧ください。
 
-## Translations
+## 備考
 
-* Simplified Chinese translation of this app is available at [`demopark/electron-api-demos-Zh_CN`](https://github.com/demopark/electron-api-demos-Zh_CN).
-* Traditional Chinese translation of this app is available at [`CalvertYang/electron-api-demos-zh-Hant`](https://github.com/CalvertYang/electron-api-demos-zh-Hant).
-
-Note: these versions are maintained by outside contributors and may not always be in sync with this version.
+日本語への翻訳に関する改善点がありましたらPRで出していただけますと幸いです。
